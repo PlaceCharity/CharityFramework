@@ -27,8 +27,8 @@ export const validatePatch = (patch: Patch) => {
 	if (typeof patch.replace !== 'object') throw new Error('patch.replace isnt an object');
 };
 
-export const validatePluginDefintion = (definition: PluginDefinition) => {
-	if (typeof definition !== 'object') throw new Error('defintion isnt an object');
+export const validatePluginDefinition = (definition: PluginDefinition) => {
+	if (typeof definition !== 'object') throw new Error('definition isnt an object');
 	if (!Array.isArray(definition.patches)) throw new Error('definition.patches isnt an array');
 	for (let i = 0; i < definition.patches.length; i++) {
 		const patch = definition.patches[i];
@@ -38,8 +38,8 @@ export const validatePluginDefintion = (definition: PluginDefinition) => {
 			throw new Error('failed to validate definition.patches[' + i + ']' + '\n' + error.toString());
 		}
 	}
-	if (definition.init && typeof definition.init !== 'function') throw new Error('defintion.init isnt a function');
-	if (definition.load && typeof definition.load !== 'function') throw new Error('defintion.load isnt a function');
+	if (definition.init && typeof definition.init !== 'function') throw new Error('definition.init isnt a function');
+	if (definition.load && typeof definition.load !== 'function') throw new Error('definition.load isnt a function');
 };
 
 export const fetchManifest = async (url: string) => {

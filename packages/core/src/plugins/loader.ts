@@ -1,4 +1,4 @@
-import { fetchManifest, PluginState, validatePluginDefintion } from '.';
+import { fetchManifest, PluginState, validatePluginDefinition } from '.';
 import { fetchWithoutCors, getUtils, getValue, setValue } from '../utils/gm';
 import { PluginManifest, Plugin, PluginDefinition } from '@placecharity/framework-types';
 
@@ -29,7 +29,7 @@ export const loadPlugin = async (url: string, manifest: PluginManifest) => {
 	const module = URL.createObjectURL(new Blob([await res.text()], { type: 'text/javascript' }));
 
 	const def: PluginDefinition = (await import(module)).default;
-	validatePluginDefintion(def);
+	validatePluginDefinition(def);
 
 	const utils = getUtils(manifest.id);
 
